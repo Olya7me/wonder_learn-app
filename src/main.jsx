@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { CreateHeader, CreateWordCard, CreateFooter } from "./App"; // Используем деструктурированный импорт
-import "./scss/index.scss";
+import { CreateHeader, CreateMemorizedWordsManager, CreateFooter } from "./App";
 
 ReactDOM.createRoot(document.querySelector(".header")).render(
     <React.StrictMode>
@@ -9,11 +8,12 @@ ReactDOM.createRoot(document.querySelector(".header")).render(
     </React.StrictMode>
 );
 
-ReactDOM.createRoot(document.querySelector(".word-cards")).render(
+ReactDOM.createRoot(document.querySelector(".main-container")).render(
     <React.StrictMode>
-        <CreateWordCard />
+        <CreateMemorizedWordsManager />
     </React.StrictMode>
 );
+
 ReactDOM.createRoot(document.querySelector(".footer")).render(
     <React.StrictMode>
         <CreateFooter />

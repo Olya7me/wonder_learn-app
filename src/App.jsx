@@ -1,16 +1,17 @@
-import Header from "./components/Header";
-import WordCard from "./components/WordCard";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import MemorizedWordsManager from "./components/MemorizedWordsManager/MemorizedWordsManager";
+import Footer from "./components/Footer/Footer";
 
 function CreateHeader() {
     return <Header />;
 }
 
-function CreateWordCard() {
-    return <WordCard />;
+function CreateMemorizedWordsManager() {
+    return <MemorizedWordsManager />;
 }
+
 function CreateFooter() {
     return <Footer />;
 }
 
-export { CreateHeader, CreateWordCard, CreateFooter };
+export { CreateHeader, CreateMemorizedWordsManager, CreateFooter };

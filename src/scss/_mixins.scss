@@ -1,0 +1,10 @@
+@mixin hover-effect {
+    padding: 9px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+        background-color: #bf8afd;
+        color: #fff;
+    }
+}
