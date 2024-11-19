@@ -1,21 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { CreateHeader, CreateMemorizedWordsManager, CreateFooter } from "./App";
+import App from "./App";
+import "./scss/index.scss";
 
-ReactDOM.createRoot(document.querySelector(".header")).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <CreateHeader />
-    </React.StrictMode>
-);
-
-ReactDOM.createRoot(document.querySelector(".main-container")).render(
-    <React.StrictMode>
-        <CreateMemorizedWordsManager />
-    </React.StrictMode>
-);
-
-ReactDOM.createRoot(document.querySelector(".footer")).render(
-    <React.StrictMode>
-        <CreateFooter />
+        <App />
     </React.StrictMode>
 );

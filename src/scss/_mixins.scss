@@ -8,3 +8,18 @@
         color: #fff;
     }
 }
+@mixin logo-style(
+    $font-size: 2rem,
+    $text-color: $accent-color,
+    $shadow-color: rgba(0, 0, 0, 0.3)
+) {
+    font-size: $font-size;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px $shadow-color;
+
+    background: linear-gradient(135deg, #c07dff, #c800ff);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

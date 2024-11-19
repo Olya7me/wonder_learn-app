@@ -3,9 +3,13 @@ import PropTypes from "prop-types";
 import wordsData from "../../data/words";
 import "./WordCard.scss";
 
-function WordCard({ onMemorize }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
+function WordCard({ onMemorize, initialIndex }) {
+    const [currentIndex, setCurrentIndex] = useState(initialIndex || 0);
     const [isFlipped, setIsFlipped] = useState(false);
+
+    if (!wordsData || wordsData.length === 0) {
+        return <div>Нет доступных слов для отображения.</div>;
+    }
 
     const nextWord = () => {
         setIsFlipped(false);
@@ -74,6 +78,11 @@ function WordCard({ onMemorize }) {
 
 WordCard.propTypes = {
     onMemorize: PropTypes.func.isRequired,
+    initialIndex: PropTypes.number,
+};
+
+WordCard.defaultProps = {
+    initialIndex: 0,
 };
 
 export default WordCard;

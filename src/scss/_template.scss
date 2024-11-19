@@ -11,6 +11,9 @@
 }
 html {
     background: linear-gradient(110deg, #fbfbfb, #eadfff24);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 body {
     font-family: "Montserrat", sans-serif;
@@ -18,6 +21,14 @@ body {
 .container {
     max-width: 1300px;
     margin: 0 auto;
+}
+.root {
+    position: relative;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 a,
 a:link,

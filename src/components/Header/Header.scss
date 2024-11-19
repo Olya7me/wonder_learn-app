@@ -6,7 +6,9 @@
     color: $accent-color;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
+    border: 2px solid $accent-color;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08);
 
     .navigation {
         &-container {
@@ -22,13 +24,7 @@
         }
 
         &-logo {
-            font-size: 2rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, $accent-color, #f4caf9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            @include logo-style(2rem, $accent-color, rgba(0, 0, 0, 0.3));
         }
 
         &-list {

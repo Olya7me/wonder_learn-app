@@ -1,17 +1,26 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import MemorizedWordsManager from "./components/MemorizedWordsManager/MemorizedWordsManager";
 import Footer from "./components/Footer/Footer";
+import VocabularyPage from "./pages/VocabularyPage/VocabularyPage";
+import LearnCardsPage from "./pages/LearnCardsPage/LearnCardsPage";
+import HomePage from "./pages/HomePage/HomePage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
-function CreateHeader() {
-    return <Header />;
-}
+const App = () => {
+    return (
+        <Router>
+            <Header />
+            <main className="main-container container">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/vocabulary" element={<VocabularyPage />} />
+                    <Route path="/learn-cards" element={<LearnCardsPage />} />
+                    <Route path="*" element={<ErrorPage />} />
+                </Routes>
+            </main>
+            <Footer />
+        </Router>
+    );
+};
 
-function CreateMemorizedWordsManager() {
-    return <MemorizedWordsManager />;
-}
-
-function CreateFooter() {
-    return <Footer />;
-}
-
-export { CreateHeader, CreateMemorizedWordsManager, CreateFooter };
+export default App;

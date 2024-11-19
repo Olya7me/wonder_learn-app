@@ -1,0 +1,73 @@
+@import "../../scss/mixins";
+@import "../../scss/vars";
+.home-page {
+    h1 {
+        display: flex;
+        justify-content: center;
+        font-size: 3rem;
+        margin-bottom: 60px;
+        font-weight: 600;
+        color: #bf8afd;
+        margin-bottom: 40px;
+        span {
+            padding-left: 10px;
+            @include logo-style(3rem, $accent-color, rgba(0, 0, 0, 0.3));
+        }
+    }
+    &-wrapper {
+        display: flex;
+        justify-content: center;
+        .items {
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 40px;
+            .item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100px;
+                background-color: #bf8afd;
+                border-radius: 40px;
+                color: white;
+                font-size: 2rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+                transition: all 0.3s ease;
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+                border: 1px solid rgb(164, 255, 6);
+                &:hover {
+                    background-color: $accent-color;
+                    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+                    transform: translateY(-5px);
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+                }
+                .quote {
+                    font-size: 1rem;
+                    display: block;
+                    font-style: italic;
+                    margin-top: 5px;
+                    color: #dcdcdc;
+                }
+                &:last-child {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+    .alice-gif {
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+        width: 150px;
+        height: auto;
+        z-index: 10;
+        pointer-events: none;
+    }
+}

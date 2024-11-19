@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Vocabulary from "../Vocabulary/Vocabulary";
 import WordCard from "../WordCard/WordCard";
 
 function MemorizedWordsManager() {
@@ -13,30 +12,12 @@ function MemorizedWordsManager() {
     }, [memorizedWords]);
 
     const handleMemorizeWord = (word) => {
-        setMemorizedWords((prevWords) => {
-            if (prevWords.some((item) => item.id === word.id)) {
-                return prevWords;
-            }
-            return [...prevWords, word];
-        });
+        if (!memorizedWords.some((item) => item.id === word.id)) {
+            setMemorizedWords([...memorizedWords, word]);
+        }
     };
 
-    const handleDeleteWord = (wordId) => {
-        setMemorizedWords((prevWords) => {
-            const updatedWords = prevWords.filter((word) => word.id !== wordId);
-            return updatedWords;
-        });
-    };
-
-    return (
-        <div>
-            <WordCard onMemorize={handleMemorizeWord} />
-            <Vocabulary
-                memorizedWords={memorizedWords}
-                onDeleteWord={handleDeleteWord}
-            />
-        </div>
-    );
+    return <WordCard onMemorize={handleMemorizeWord} />;
 }
 
 export default MemorizedWordsManager;
