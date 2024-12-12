@@ -1,0 +1,20 @@
+.wrapper-button {
+    margin-bottom: 30px;
+    .back-button {
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #333;
+        background-color: #bf8afd;
+        &:active {
+            position: relative;
+            top: 1px;
+        }
+
+        &:hover {
+            color: white;
+        }
+    }
+}

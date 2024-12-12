@@ -29,11 +29,6 @@ const HomePage = () => {
                     </li>
                 </ul>
             </div>
-            <img
-                src="/src/images/HomePage/alice_jump.gif"
-                alt="Alice Jumping"
-                className="alice-gif"
-            />
         </div>
     );
 };

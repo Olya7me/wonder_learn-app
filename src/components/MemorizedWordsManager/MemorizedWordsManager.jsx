@@ -16,8 +16,21 @@ function MemorizedWordsManager() {
             setMemorizedWords([...memorizedWords, word]);
         }
     };
+    const [viewedWordsCount, setViewedWordsCount] = useState(0);
 
-    return <WordCard onMemorize={handleMemorizeWord} />;
+    const incrementViewedWordsCount = () => {
+        setViewedWordsCount((prevCount) => prevCount + 1);
+    };
+
+    return (
+        <div>
+            <WordCard
+                onMemorize={handleMemorizeWord}
+                onViewWord={incrementViewedWordsCount}
+                viewedWordsCount={viewedWordsCount}
+            />
+        </div>
+    );
 }
 
 export default MemorizedWordsManager;

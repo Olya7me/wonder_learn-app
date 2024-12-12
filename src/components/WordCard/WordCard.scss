@@ -1,5 +1,16 @@
 .word-cards {
     margin-bottom: 80px;
+    justify-content: center;
+    align-items: center;
+
+    .count-words {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #333;
+    }
 
     .word-card {
         display: flex;
@@ -88,6 +99,14 @@
             }
 
             .remember {
+                background-color: rgb(61, 227, 61);
+                transition: background-color 0.5s ease, border 0.5s ease,
+                    box-shadow 0.5s ease;
+            }
+
+            .remember:focus {
+                border: 2px solid rgb(53, 168, 33);
+                box-shadow: 0 0 10px 5px rgba(31, 202, 48, 0.5);
                 background-color: rgb(61, 227, 61);
             }
 

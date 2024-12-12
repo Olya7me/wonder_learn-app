@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import wordsData from "../../data/words";
 import "./WordCard.scss";
 
-function WordCard({ onMemorize, initialIndex }) {
+function WordCard({ onMemorize, initialIndex, onViewWord, viewedWordsCount }) {
     const [currentIndex, setCurrentIndex] = useState(initialIndex || 0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [viewedIndices, setViewedIndices] = useState([]);
+
+    const memorizeButtonRef = useRef(null);
+
+    useEffect(() => {
+        if (memorizeButtonRef.current) {
+            memorizeButtonRef.current.focus();
+        }
+    }, [currentIndex]);
 
     if (!wordsData || wordsData.length === 0) {
         return <div>Нет доступных слов для отображения.</div>;
@@ -26,6 +35,10 @@ function WordCard({ onMemorize, initialIndex }) {
     const { english, transcription, russian } = wordsData[currentIndex];
 
     const handleCardClick = () => {
+        if (!viewedIndices.includes(currentIndex)) {
+            setViewedIndices((prev) => [...prev, currentIndex]);
+            onViewWord();
+        }
         setIsFlipped((prev) => !prev);
     };
 
@@ -36,6 +49,7 @@ function WordCard({ onMemorize, initialIndex }) {
 
     return (
         <section className="word-cards">
+            <p className="count-words">Изучено слов: {viewedWordsCount}</p>
             <div
                 className={`word-card ${isFlipped ? "flipped" : ""}`}
                 onClick={handleCardClick}
@@ -58,6 +72,7 @@ function WordCard({ onMemorize, initialIndex }) {
                     <button
                         className="btn remember"
                         onClick={handleMemorizeClick}
+                        ref={memorizeButtonRef}
                     >
                         Запомнить
                     </button>
@@ -78,6 +93,8 @@ function WordCard({ onMemorize, initialIndex }) {
 
 WordCard.propTypes = {
     onMemorize: PropTypes.func.isRequired,
+    onViewWord: PropTypes.func.isRequired,
+    viewedWordsCount: PropTypes.number.isRequired,
     initialIndex: PropTypes.number,
 };
 
