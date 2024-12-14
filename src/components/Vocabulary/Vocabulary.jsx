@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { WordContext } from "../../components/WordsContext/WordsContext";
 import PropTypes from "prop-types";
 import "./Vocabulary.scss";
 import trashIcon from "../../images/vocabulary/trash-can.png";
 
-function Vocabulary({ memorizedWords, onDeleteWord }) {
+function Vocabulary() {
+    const { memorizedWords, removeMemorizedWord } = useContext(WordContext);
+
     return (
         <section className="vocabulary">
             <h2>Словарь запомненных слов</h2>
@@ -26,7 +30,7 @@ function Vocabulary({ memorizedWords, onDeleteWord }) {
                             <td>
                                 <button
                                     className="delete-btn"
-                                    onClick={() => onDeleteWord(word.id)}
+                                    onClick={() => removeMemorizedWord(word.id)}
                                 >
                                     <img src={trashIcon} alt="Удалить" />
                                 </button>

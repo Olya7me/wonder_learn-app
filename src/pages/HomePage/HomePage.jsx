@@ -9,19 +9,17 @@ const HomePage = () => {
             </h1>
             <div className="home-page-wrapper">
                 <ul className="items">
-                    <li className="item">
-                        <Link to="/learn-cards">
-                            Уроки Безумного Шляпника 🎩
-                        </Link>
-                    </li>
-                    <li className="item">
-                        <Link to="/vocabulary">
+                    <Link to="/learn-cards">
+                        <li className="item">Уроки Безумного Шляпника 🎩</li>
+                    </Link>
+                    <Link to="/vocabulary">
+                        <li className="item">
                             Любопытные слова 🪞
                             <span className="quote">
                                 &ldquo;Все чудесатее и чудесатее!&rdquo;
                             </span>
-                        </Link>
-                    </li>
+                        </li>
+                    </Link>
                     <li className="item">
                         <span className="quote">
                             &ldquo;Позже здесь будет режим тренировки&rdquo;

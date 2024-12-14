@@ -36,6 +36,7 @@
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.6s;
+            padding: 20px;
         }
 
         &.flipped .card-content {
@@ -65,11 +66,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 2.5rem;
             font-weight: 500;
             color: #333;
             backface-visibility: hidden;
             transform: rotateY(180deg);
+            word-break: break-all;
+            padding: 20px;
         }
 
         .card-buttons {
@@ -91,6 +94,10 @@
 
                 &:hover {
                     color: white;
+                }
+                &:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
                 }
             }
 
@@ -115,4 +122,14 @@
             }
         }
     }
+}
+.empty-words {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 80px;
 }

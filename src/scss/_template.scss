@@ -19,8 +19,11 @@ body {
 .container {
     max-width: 1300px;
     margin: 0 auto;
+    min-height: 100%;
 }
-
+.main-container {
+    min-height: 100vh;
+}
 a,
 a:link,
 a:visited {

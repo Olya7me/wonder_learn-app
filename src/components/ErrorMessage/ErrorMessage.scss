@@ -1,0 +1,35 @@
+@import "../../scss/vars";
+.error-message-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+
+    .error-message-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 20px auto;
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: $accent-color;
+        }
+
+        .error-text {
+            font-size: 2rem;
+            font-weight: 500;
+            color: rgba(59, 59, 59, 0.778);
+        }
+        .error-image {
+            width: 200px;
+        }
+    }
+}
