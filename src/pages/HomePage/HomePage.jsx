@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./HomePage.scss";
 
 const HomePage = () => {
+    const [isCatVisible, setIsCatVisible] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setIsCatVisible(true), 300);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className="home-page">
             <h1>
@@ -20,12 +28,17 @@ const HomePage = () => {
                             </span>
                         </li>
                     </Link>
-                    <li className="item">
-                        <span className="quote">
-                            &ldquo;Позже здесь будет режим тренировки&rdquo;
-                        </span>
-                    </li>
+                    <li className="item">Немного о нас 💙</li>
                 </ul>
+                <div className="main-image">
+                    <img src="../../src/images/HomePage/mainAlice.png" />
+                </div>
+                <div className={`cat-image ${isCatVisible ? "visible" : ""}`}>
+                    <img
+                        src="../../src/images/HomePage/cat.png"
+                        alt="Cheshire Cat"
+                    />
+                </div>
             </div>
         </div>
     );

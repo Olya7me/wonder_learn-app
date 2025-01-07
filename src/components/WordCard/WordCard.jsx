@@ -7,8 +7,8 @@ function WordCard({ onMemorize, initialIndex, onViewWord, viewedWordsCount }) {
     const { words } = useContext(WordContext);
     const [currentIndex, setCurrentIndex] = useState(initialIndex || 0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [isAnimationComplete, setIsAnimationComplete] = useState(true);
     const [viewedIndices, setViewedIndices] = useState([]);
-
     const memorizeButtonRef = useRef(null);
 
     useEffect(() => {
@@ -16,6 +16,31 @@ function WordCard({ onMemorize, initialIndex, onViewWord, viewedWordsCount }) {
             memorizeButtonRef.current.focus();
         }
     }, [currentIndex]);
+
+    useEffect(() => {
+        setIsFlipped(false);
+        setIsAnimationComplete(true);
+    }, [currentIndex]);
+
+    useEffect(() => {
+        const cardElement = document.querySelector(".word-card");
+        const handleTransitionEnd = () => {
+            setIsAnimationComplete(true);
+        };
+
+        if (cardElement) {
+            cardElement.addEventListener("transitionend", handleTransitionEnd);
+        }
+
+        return () => {
+            if (cardElement) {
+                cardElement.removeEventListener(
+                    "transitionend",
+                    handleTransitionEnd
+                );
+            }
+        };
+    }, []);
 
     if (!words || words.length === 0) {
         return (
@@ -27,7 +52,6 @@ function WordCard({ onMemorize, initialIndex, onViewWord, viewedWordsCount }) {
 
     const nextWord = () => {
         if (currentIndex < words.length - 1) {
-            setIsFlipped(false);
             setCurrentIndex((prevIndex) => prevIndex + 1);
             playSoundNext();
         }
@@ -35,7 +59,6 @@ function WordCard({ onMemorize, initialIndex, onViewWord, viewedWordsCount }) {
 
     const previousWord = () => {
         if (currentIndex > 0) {
-            setIsFlipped(false);
             setCurrentIndex((prevIndex) => prevIndex - 1);
             playSoundNext();
         }
@@ -48,6 +71,7 @@ function WordCard({ onMemorize, initialIndex, onViewWord, viewedWordsCount }) {
             setViewedIndices((prev) => [...prev, currentIndex]);
             onViewWord();
         }
+        setIsAnimationComplete(false);
         setIsFlipped((prev) => !prev);
     };
 
@@ -55,6 +79,20 @@ function WordCard({ onMemorize, initialIndex, onViewWord, viewedWordsCount }) {
         e.stopPropagation();
         onMemorize(words[currentIndex]);
         playSoundRemembered();
+    };
+
+    const handleSoundClick = (e) => {
+        e.stopPropagation();
+        speakWord(english);
+    };
+
+    const speakWord = (word) => {
+        const speech = new SpeechSynthesisUtterance(word);
+        speech.lang = "en-US";
+        speech.volume = 1;
+        speech.rate = 1;
+        speech.pitch = 1;
+        window.speechSynthesis.speak(speech);
     };
 
     const playSoundRemembered = () => {
@@ -78,6 +116,17 @@ function WordCard({ onMemorize, initialIndex, onViewWord, viewedWordsCount }) {
                     <h2 className="word">{english}</h2>
                     <p className="transcription">{transcription}</p>
                     {isFlipped && <div className="card-back">{russian}</div>}
+                    {!isFlipped && isAnimationComplete && (
+                        <button
+                            className="sound-btn visible"
+                            onClick={handleSoundClick}
+                        >
+                            <img
+                                src="../../src/images/wordCard/sound-btn.png"
+                                alt="Sound Button"
+                            />
+                        </button>
+                    )}
                 </div>
                 <div className="card-buttons">
                     <button

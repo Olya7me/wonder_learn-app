@@ -91,11 +91,6 @@ function Modal({ closeModal, isSignIn, setCurrentUser }) {
         setEmailError(emailErr);
 
         if (!loginErr && !passwordErr && !emailErr) {
-            alert(
-                isSignIn
-                    ? "Вы успешно вошли!"
-                    : "Вы успешно зарегистрировались!"
-            );
             setCurrentUser(login);
             closeModal();
             return;
@@ -161,7 +156,7 @@ function Modal({ closeModal, isSignIn, setCurrentUser }) {
                                 onChange={handleAgreeChange}
                             />
                             <label htmlFor="agree">
-                                Я согласен с условиями
+                                Я согласен(сна) с условиями
                             </label>
                         </div>
                     )}
