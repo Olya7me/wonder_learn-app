@@ -18,3 +18,12 @@
         }
     }
 }
+
+@media (max-width: 460px) {
+    .wrapper-button {
+        .back-button {
+            padding: 8px 10px;
+            border-radius: 50px;
+        }
+    }
+}

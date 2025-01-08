@@ -39,3 +39,40 @@
         }
     }
 }
+
+@media (max-width: 990px) {
+    .er-page {
+        padding: 10px;
+    }
+    .error-page {
+        .error-page-wrapper {
+            h1 {
+                font-size: 4rem;
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .error-page {
+        .error-page-wrapper {
+            h1 {
+                font-size: 3rem;
+            }
+            .error-page-image {
+                width: 250px;
+            }
+        }
+    }
+}
+@media (max-width: 450px) {
+    .error-page {
+        .error-page-wrapper {
+            h1 {
+                font-size: 2rem;
+            }
+            .error-page-image {
+                width: 200px;
+            }
+        }
+    }
+}

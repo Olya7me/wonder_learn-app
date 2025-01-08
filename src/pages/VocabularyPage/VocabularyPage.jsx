@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Vocabulary from "../../components/Vocabulary/Vocabulary";
 import BackButton from "../../components/BackButton/BackButton";
+import "./VocabularyPage.scss";
 
 const VocabularyPage = () => {
     const [memorizedWords, setMemorizedWords] = useState([]);
@@ -21,7 +22,7 @@ const VocabularyPage = () => {
     };
 
     return (
-        <div>
+        <div className="vocabulary-page">
             <BackButton />
             <Vocabulary
                 memorizedWords={memorizedWords}

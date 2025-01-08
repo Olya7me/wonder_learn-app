@@ -6,7 +6,7 @@ import VocabularyPage from "./pages/VocabularyPage/VocabularyPage";
 import LearnCardsPage from "./pages/LearnCardsPage/LearnCardsPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
-
+import AboutPage from "./pages/AboutPage/AboutPage";
 const App = () => {
     return (
         <WordsProvider>
@@ -23,6 +23,7 @@ const App = () => {
                             path="/learn-cards"
                             element={<LearnCardsPage />}
                         />
+                        <Route path="/about-page" element={<AboutPage />} />
                         <Route path="*" element={<ErrorPage />} />
                     </Routes>
                 </main>

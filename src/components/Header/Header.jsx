@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Header.scss";
 import Modal from "../Modal/Modal";
 
@@ -7,6 +7,18 @@ function Header() {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [isSignIn, setIsSignIn] = useState(true);
     const [currentUser, setCurrentUser] = useState(null);
+    const [isSmallScreen, setIsSmallScreen] = useState(
+        window.innerWidth <= 768
+    ); // Отслеживание размера экрана
+
+    // Обновление размера экрана при изменении
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth <= 768);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     function closeModal() {
         setIsOpenModal(false);
@@ -24,7 +36,6 @@ function Header() {
 
     function handleLogout() {
         setCurrentUser(null);
-        alert("Вы вышли из аккаунта.");
     }
 
     return (
@@ -46,29 +57,55 @@ function Header() {
                                         setCurrentUser={setCurrentUser}
                                     />
                                 )}
-                                <li className="link">
-                                    {currentUser ? (
-                                        <span className="user-greeting">
-                                            Привет, {currentUser}
-                                        </span>
-                                    ) : (
-                                        <a href="#" onClick={openSignInModal}>
-                                            Войти
-                                        </a>
-                                    )}
-                                </li>
-                                {currentUser ? (
-                                    <li className="link">
-                                        <a href="#" onClick={handleLogout}>
-                                            Выйти
-                                        </a>
-                                    </li>
+                                {isSmallScreen ? (
+                                    <div className="image-buttons">
+                                        <img
+                                            src="../../src/images/Header/log.png"
+                                            alt="Войти"
+                                            onClick={openSignInModal}
+                                        />
+                                        <img
+                                            src="../../src/images/Header/reg.png"
+                                            alt="Регистрация"
+                                            onClick={openSignUpModal}
+                                        />
+                                    </div>
                                 ) : (
-                                    <li className="link">
-                                        <a href="#" onClick={openSignUpModal}>
-                                            Зарегистрироваться
-                                        </a>
-                                    </li>
+                                    <>
+                                        <li className="link">
+                                            {currentUser ? (
+                                                <span className="user-greeting">
+                                                    Привет, {currentUser}
+                                                </span>
+                                            ) : (
+                                                <a
+                                                    href="#"
+                                                    onClick={openSignInModal}
+                                                >
+                                                    Войти
+                                                </a>
+                                            )}
+                                        </li>
+                                        {currentUser ? (
+                                            <li className="link">
+                                                <a
+                                                    href="#"
+                                                    onClick={handleLogout}
+                                                >
+                                                    Выйти
+                                                </a>
+                                            </li>
+                                        ) : (
+                                            <li className="link">
+                                                <a
+                                                    href="#"
+                                                    onClick={openSignUpModal}
+                                                >
+                                                    Зарегистрироваться
+                                                </a>
+                                            </li>
+                                        )}
+                                    </>
                                 )}
                             </ul>
                         </div>

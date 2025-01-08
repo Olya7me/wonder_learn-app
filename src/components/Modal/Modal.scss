@@ -72,8 +72,7 @@
                 justify-content: center;
                 align-items: center;
                 margin: 0 auto;
-                width: 60%;
-                padding: 10px;
+                padding: 15px 35px;
                 background-color: rgb(61, 227, 61);
                 border: none;
                 color: white;
@@ -101,5 +100,36 @@
             display: flex;
             gap: 10px;
         }
+    }
+}
+@media (max-width: 580px) {
+    .sign-in-modal-content {
+        width: 90%;
+        padding: 20px;
+        margin: 0 10%;
+
+        .modal-title {
+            font-size: 1.5rem !important;
+        }
+    }
+}
+@media (max-width: 468px) {
+    .checkbox-container {
+        gap: 5px;
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .sign-in-modal-content {
+        width: 80%;
+        min-height: 300px;
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        width: 80%;
+        font-size: 18px !important;
     }
 }

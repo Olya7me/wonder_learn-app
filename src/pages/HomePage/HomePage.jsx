@@ -18,17 +18,19 @@ const HomePage = () => {
             <div className="home-page-wrapper">
                 <ul className="items">
                     <Link to="/learn-cards">
-                        <li className="item">Уроки Безумного Шляпника 🎩</li>
+                        <li className="item">Уроки Безумного Шляпника </li>
                     </Link>
                     <Link to="/vocabulary">
                         <li className="item">
-                            Любопытные слова 🪞
+                            Любопытные слова
                             <span className="quote">
                                 &ldquo;Все чудесатее и чудесатее!&rdquo;
                             </span>
                         </li>
                     </Link>
-                    <li className="item">Немного о нас 💙</li>
+                    <Link to="/about-page">
+                        <li className="item">Немного о нас</li>
+                    </Link>
                 </ul>
                 <div className="main-image">
                     <img src="../../src/images/HomePage/mainAlice.png" />

@@ -40,5 +40,33 @@
                 }
             }
         }
+        .image-buttons {
+            display: flex;
+            gap: 10px;
+
+            img {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                filter: grayscale(1) sepia(1) hue-rotate(250deg) saturate(10)
+                    brightness(1.2);
+                transition: filter 0.3s ease;
+
+                &:hover {
+                    filter: grayscale(0) sepia(1) hue-rotate(250deg) saturate(6)
+                        brightness(1.3);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 581px) {
+    .header {
+        .navigation {
+            &-logo {
+                font-size: 1.5rem;
+            }
+        }
     }
 }
