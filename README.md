@@ -64,7 +64,7 @@ WonderLearn вдохновляет на обучение, погружая по�
 1. Клонируйте репозиторий:
 
    ```bash
-   https://github.com/Olya7me/flash_cards_app.git
+   https://github.com/Olya7me/wonder_learn-app.git
 
    
 2. Установите зависимости:
@@ -86,3 +86,82 @@ WonderLearn вдохновляет на обучение, погружая по�
 - 📧 Email: gumnukolga@gmail.com
 - 🌐 Профиль на GitHub: https://github.com/Olya7me
 
+---
+# ✨ WonderLearn
+
+**WonderLearn** is an educational app designed to help users learn English words in an engaging and playful way.  
+The interface is inspired by *"Alice in Wonderland"*, making the learning process unique and exciting.
+
+---
+
+## 📖 About the App
+
+WonderLearn helps you effectively learn English words using flashcards.  
+Features of the app include:  
+- A thematic design inspired by *"Alice in Wonderland"*.  
+- The ability to listen to word pronunciations for better comprehension.  
+- An intuitive interface suitable for both beginners and advanced users.  
+- A word dictionary where you can revisit and review your favorite or challenging words.  
+- User registration with form validation for a secure and personalized experience.
+
+WonderLearn encourages learning by immersing users in a magical atmosphere.
+
+---
+
+## 🎯 Key Features
+
+- 🃏 **Flashcards**:  
+  - Flashcards display the word, its transcription, translation, and a button to listen to the pronunciation.  
+  - Option to mark a word as "memorized" or "unknown".  
+
+- 📚 **Word Dictionary**:  
+  - Return to the learned words at any time to repeat and reinforce your knowledge.
+
+- 📝 **User Registration**:  
+  - Option to register with your name, email, and password.  
+  - Form validation to ensure the accuracy of the entered data.  
+
+- 🌟 **Responsive Interface**:  
+  - The app works on desktops, tablets, and smartphones.  
+
+---
+
+## 💻 Technologies and Context
+
+WonderLearn was developed using modern technologies and approaches:
+
+- **React.js** — for building the interface and creating dynamic components.  
+- **React Router Dom** — for routing between pages in the app.  
+- **SCSS** — for styling components and improving the app’s appearance.  
+- **JavaScript (ES6+)** — for creating interactive elements and managing app logic.  
+- **Form Validation** — for implementing validation on registration and login forms.  
+- **Context API** — for centralized state management, such as storing word, user, and progress data.  
+- **Audio API** — for integrating the word pronunciation feature.  
+
+## 🚀 Installation and Setup
+
+To run the app locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   https://github.com/Olya7me/wonder_learn-app.git
+
+   
+2. Install dependencies:
+   ```bash
+   npm install
+
+
+3. Start the local server:
+   ```bash
+   npm start
+
+## 🧙‍♀️ What Makes the App Unique?
+The thematic atmosphere of "Alice in Wonderland" sparks interest in learning.
+The user-friendly design allows you to focus on studying words rather than navigating the interface.
+The flexibility of learning at your own pace enables you to learn words on your terms.
+
+## 🤝 Contacts
+📧 Email: gumnukolga@gmail.com
+🌐 GitHub Profile: https://github.com/Olya7me
