@@ -6,10 +6,9 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/791223e2-0430-496d-a12c-3e01e1024300" alt="cat" width="20%" />
 </p>  
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/ba742357-f0bf-4c57-a6f9-b66042cbe6fa" alt="website-gif" width="60%" />
-</p> 
-<img src="[https://github.com/user-attachments/assets/ba742357-f0bf-4c57-a6f9-b66042cbe6fa](https://github.com/Olya7me/wonder_learn-app/issues/1#issue-2778254235)" alt="video" width="60%" />
+
+https://github.com/user-attachments/assets/5282ab17-daa1-4d7a-8744-f5b59c29035a
+
 
 ---
 
